@@ -35,7 +35,6 @@
 
     - 샘플코드를 활용하여 API 값 받아오기
     - /controller/WeatherController.java 생성 후 GetMapping 메서드 작성
-    - /service/WeatherprjApplication.java 생성 후 테스트용 실행 메서드 작성
     - /templates/weather.html에 샘플 javascript 함수작성 후 버튼으로 값이 들어오는 지 테스트
 
     <img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img005.png">
