@@ -22,12 +22,23 @@
     <img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img002.png">
 
     3. Publish your branch 클릭
-    4. 팀원 브런치에서 작업 후 커밋 후 업로드
-    5. 생성자가 팀원브런치에서 작업한 내용을 main으로 merge하기
-    6. Merge into current branch 클릭
-    7. 팀원브런치를 선택 후 Create a merge commit 클릭하면 머지완료
-    8. 
+    4. 팀원 브런치에서 작업 후 커밋 후 푸시
+    5. 팀원이 Create Pull Request를 클릭 후 깃허브 사이트로 이동하여 Merge Request 요청 후 Confirm하면 Merge 완료
 
-- 공공데이터포탈에서 API 받아오기
-    - [공공데이터포털](https://www.data.go.kr/index.do) 에서 기상청 관련 API 활용신청
+    <img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img004.png">
+
+
+- 공공데이터포탈에서 API 받아서 연동하기
+    - [공공데이터포털](https://www.data.go.kr/index.do) 에서 기상청_단기예보 ((구)_동네예보) 조회서비스 API 활용 신청
+
+    <img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img003.png">
+
+    - 샘플코드를 활용하여 API 값 받아오기
+    - /controller/WeatherController.java 생성 후 GetMapping 메서드 작성
+    - /service/WeatherprjApplication.java 생성 후 테스트용 실행 메서드 작성
+    - /templates/weather.html에 샘플 javascript 함수작성 후 버튼으로 값이 들어오는 지 테스트
+
+    <img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img005.png">
+
+
 
