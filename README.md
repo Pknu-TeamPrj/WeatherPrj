@@ -3,3 +3,4 @@
 
 
 ## 1일차
+- 깃허브 Organization 
