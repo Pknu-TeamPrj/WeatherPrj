@@ -30,4 +30,6 @@
 
 - 공공데이터포탈에서 API 받아오기
     - [공공데이터포털](https://www.data.go.kr/index.do) 에서 기상청 관련 API 활용신청
-    - 
+
+
+<img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img002.png">
