@@ -1,6 +1,6 @@
 # WeatherPrj
-날씨에 따른 옷매칭 애플리케이션
-
+## 날씨에 따른 옷매칭 애플리케이션
+- 공공데이터 포탈 API와 OpenAI(ChatGPT)를 연동하여 API자료를 바탕으로 날씨에 적절한 옷을 매칭시켜주는 프로그램
 
 ## 1일차
 - 깃허브 Organization 리포지토리 만들기
@@ -28,4 +28,6 @@
     7. 팀원브런치를 선택 후 Create a merge commit 클릭하면 머지완료
     8. 팀원도 동일하게 Merge into current branch에서 Main내용을 머지하면 Pull가능
 
-- 공공데이터포탈
+- 공공데이터포탈에서 API 받아오기
+    - [공공데이터포털](https://www.data.go.kr/index.do) 에서 기상청 관련 API 활용신청
+    - 
