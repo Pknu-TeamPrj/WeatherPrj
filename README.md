@@ -26,10 +26,8 @@
     5. 생성자가 팀원브런치에서 작업한 내용을 main으로 merge하기
     6. Merge into current branch 클릭
     7. 팀원브런치를 선택 후 Create a merge commit 클릭하면 머지완료
-    8. 팀원도 동일하게 Merge into current branch에서 Main내용을 머지하면 Pull가능
+    8. 
 
 - 공공데이터포탈에서 API 받아오기
     - [공공데이터포털](https://www.data.go.kr/index.do) 에서 기상청 관련 API 활용신청
 
-
-<img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img002.png">
