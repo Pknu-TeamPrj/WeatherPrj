@@ -8,20 +8,20 @@
 </head>
 
 <body>
-    <button onclick="btn()">히히</button>
+    <button onclick="btn()">값 받아오기</button>
 
     <script>
         function btn() {
             // URL
-            // let url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
+            let url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
             // 서비스키
-            // let queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'key';
+            let queryParams = '?' + encodeURIComponent('serviceKey') + '=' + '9YNgohUPh05p8t4qTET%2FHW4642A2TN7edLNMtFbU5LP12qcWsRtYxruSHyGiCfhUpGOWseQonQx7OovvIbhUYA%3D%3D';
             // 페이지 번호
             queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
             // 한페이지 결과 수
             queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1000');
             // 발표일자
-            queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20240701');
+            queryParams += '&' + encodeURIComponent('base_date') + '=' + encodeURIComponent('20240702');
             // 발표시간
             queryParams += '&' + encodeURIComponent('base_time') + '=' + encodeURIComponent('0800');
             // x좌표
