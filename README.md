@@ -39,5 +39,6 @@
 
     <img src="https://github.com/Pknu-TeamPrj/WeatherPrj/blob/main/image/img005.png">
 
-
-
+## 2일차
+- 회원기능 및 로그인 기능 추가
+- 게시판 및 게시글 작성 추가
