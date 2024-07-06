@@ -9,5 +9,5 @@ import com.teamprj.weatherprj.entity.Member;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Integer>{
-    Optional<Member> findByUsername(String userId);
+    Optional<Member> findByUserName(String userId);
 }

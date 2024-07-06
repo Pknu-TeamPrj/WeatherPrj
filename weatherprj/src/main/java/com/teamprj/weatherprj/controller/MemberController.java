@@ -6,7 +6,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.teamprj.weatherprj.dto.UserDto;
-import com.teamprj.weatherprj.repository.MemberRepository;
+// import com.teamprj.weatherprj.entity.Member;
+// import com.teamprj.weatherprj.repository.MemberRepository;
 import com.teamprj.weatherprj.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MemberController {
 
-    private final MemberRepository memberRepository;
+    // private final MemberRepository memberRepository;
     private final MemberService memberService;
 
     @GetMapping("/login")
