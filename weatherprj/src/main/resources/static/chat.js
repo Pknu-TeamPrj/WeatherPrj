@@ -5,11 +5,9 @@ const userInput = document.querySelector('#user-input input');
 // 전송 버튼
 const sendButton = document.querySelector('#user-input button');
 // 발급받은 OpenAI API 키를 변수로 저장
-const apiKey = '발급받은 key값 입력';  
+const apiKey = 'API key 작성부분';
 // OpenAI API 엔드포인트 주소를 변수로 저장
 const apiEndpoint = 'https://api.openai.com/v1/chat/completions'
-
-//채팅 메시지 추가 함수 (새로운 메시지를 생성하고 채팅 메시지 목록 추가)
 function addMessage(sender, message) {
     // 새로운 div 생성
     const messageElement = document.createElement('div');
@@ -19,7 +17,7 @@ function addMessage(sender, message) {
     messageElement.textContent = `${sender}: ${message}`;
     chatMessages.prepend(messageElement);
 }
-// ChatGPT API 요청 ()
+// ChatGPT API 요청
 async function fetchAIResponse(prompt) {
     // API 요청에 사용할 옵션을 정의
     const requestOptions = {
@@ -30,7 +28,7 @@ async function fetchAIResponse(prompt) {
             'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-            model: "gpt-4",  // 사용할 AI 모델
+            model: "gpt-3.5-turbo",  // 사용할 AI 모델
             messages: [{
                 role: "user", // 메시지 역할을 user로 설정
                 content: prompt // 사용자가 입력한 메시지
@@ -40,7 +38,7 @@ async function fetchAIResponse(prompt) {
             top_p: 1, // 토큰 샘플링 확률을 설정
             frequency_penalty: 0.5, // 일반적으로 나오지 않는 단어를 억제하는 정도
             presence_penalty: 0.5, // 동일한 단어나 구문이 반복되는 것을 억제하는 정도
-            stop: ["종료"], // 생성된 텍스트에서 종료 구문을 설정(종료 입력시 챗 기능 정지)
+            stop: ["Human"], // 생성된 텍스트에서 종료 구문을 설정
         }),
     };
     // API 요청후 응답 처리
