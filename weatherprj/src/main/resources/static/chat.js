@@ -38,7 +38,7 @@ async function fetchAIResponse(prompt) {
             top_p: 1, // 토큰 샘플링 확률을 설정
             frequency_penalty: 0.5, // 일반적으로 나오지 않는 단어를 억제하는 정도
             presence_penalty: 0.5, // 동일한 단어나 구문이 반복되는 것을 억제하는 정도
-            stop: ["Human"], // 생성된 텍스트에서 종료 구문을 설정
+            stop: ["종료"], // 생성된 텍스트에서 종료 구문을 설정
         }),
     };
     // API 요청후 응답 처리
