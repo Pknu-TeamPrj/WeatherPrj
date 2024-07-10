@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# apikey들 숨기기
+**/apikey.properties
