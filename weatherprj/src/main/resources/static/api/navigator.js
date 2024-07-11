@@ -6,7 +6,7 @@ window.onload = () =>{
             //경도
             const longitude = position.coords.longitude;
             let mapDiv = document.getElementById('map');
-            naverMap(latitude,longitude);
+            naverMap(35.3272,129.2821);
 
 
             
@@ -58,7 +58,7 @@ function message(location){
             //주소출력하기
         let messageDiv = document.getElementById('message');
         console.log(region);
-        const area2 = region.area2.name;
+        const area2 = region.area3.name;
 
         messageDiv.textContent = area2;
     })

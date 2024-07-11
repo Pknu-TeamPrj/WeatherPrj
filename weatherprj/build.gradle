@@ -39,6 +39,8 @@ dependencies {
 	// 스프링 시큐리티 디펜던시
 	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	implementation 'org.json:json:20240303'
 }
 
 tasks.named('test') {

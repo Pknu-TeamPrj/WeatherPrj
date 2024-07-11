@@ -10,4 +10,9 @@ public class WeatherController {
         return "weather";
     }
     
+    @GetMapping("/map")
+    public String map() {
+        return "map";
+    }
+    
 }
