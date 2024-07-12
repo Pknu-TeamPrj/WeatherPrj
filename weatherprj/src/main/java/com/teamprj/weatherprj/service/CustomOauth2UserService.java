@@ -9,6 +9,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import com.teamprj.weatherprj.OAuth2.CustomOauth2UserDetails;
+import com.teamprj.weatherprj.OAuth2.KakaoUserDetails;
 import com.teamprj.weatherprj.OAuth2.NaverUserDetails;
 import com.teamprj.weatherprj.OAuth2.OAuth2UserInfo;
 import com.teamprj.weatherprj.entity.Member;
@@ -20,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CustomOatuh2UserService extends DefaultOAuth2UserService{
+public class CustomOauth2UserService extends DefaultOAuth2UserService{
     
     private final MemberRepository memberRepository;
 
@@ -39,6 +40,8 @@ public class CustomOatuh2UserService extends DefaultOAuth2UserService{
         }
         if(provider.equals("kakao")){
             log.info("카카오 로그인");
+            oAuth2UserInfo = new KakaoUserDetails(oAuth2User.getAttributes());
+            log.info("~~~~={},",oAuth2UserInfo);
         }
 
         String providerId = oAuth2UserInfo.getProviderId();
