@@ -1,0 +1,85 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, lightCyan, skyBlue, deepSkyBlue);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+
+    flex-direction: column;     /* 버튼위치 조정 */
+}
+
+.weather {
+    width: 30%;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.weather img.weatherIcon {
+    background: linear-gradient(45deg, rgb(196, 248, 248), skyBlue, deepSkyBlue);
+    border-radius: 30px 30px 30px 30px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 5px;
+
+}
+
+.weather-info-main {
+    list-style: none;
+    padding-top: 30px;
+    margin: 0 20px;
+    text-align: left;
+
+}
+
+.weather-info-sub {
+    list-style: none;
+    /* padding: 0; */
+    margin: 0 20px;
+    text-align: left;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+.weather-info-main li, .weather-info-sub li {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.button-container {
+    margin-top: 30px;
+}
+
+.next-button {
+    background-color: #55a8d4;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50px 50px 50px 50px;
+    cursor: pointer;
+    transition: background-color 1.0s;
+}
+
+.next-button:hover {
+    background-color: #0687d1;
+}

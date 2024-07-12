@@ -1,38 +1,37 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+form {
+    text-align: center;
+    padding-bottom: 10%;
+}
 table {
     width: 280px;
-    height: 550px;
-    margin: auto;      
+    height: 30%;
+    margin-top: 5%;
 }
-.email {
-    width: 127px;
-    height: 32px;
-    font-size: 15px;
-    border: 0;
-    border-color: lightgray;
-    border-radius: 15px;
-    outline: none;
-    padding-left: 10px;
-    background-color: rgb(233,233,233);
-}
-.text {
+.gender, .text, .age {
     width: 250px;
     height: 32px;
     font-size: 15px;
     border: 0;
-    border-radius: 15px;
-    outline: none;
-    padding-left: 10px;
-    background-color: rgb(233,233,233);
-}
-select {
-    width: 100px;
-    height: 32px;
-    font-size: 15px;
-    border: 1;
     border-color: lightgray;
     border-radius: 15px;
     outline: none;
     padding-left: 10px;
+    background-color: rgb(233,233,233);
+
+}
+.text {
+    width: 250px;
+}
+select {
+    width: 100px;
+    border: 1px solid lightgray;
 }
 .btn {
     width: 262px;
@@ -42,15 +41,15 @@ select {
     border-radius: 15px;
     outline: none;
     padding-left: 10px;
+    margin-top: 20px;
     background-color: rgb(164, 199, 255);
+    cursor: pointer;
 }
 .btn:active {
-    width: 262px;
-    height: 32px;
-    font-size: 15px;
-    border: 0;
-    border-radius: 15px;
-    outline: none;
-    padding-left: 10px;
     background-color: rgb(61, 135, 255);
+}
+
+td {
+    height: 5%;
+    padding-top: 5%; /* 요소 사이 간격을 줄이기 위해 수정 */
 }

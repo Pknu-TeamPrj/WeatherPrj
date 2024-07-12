@@ -1,9 +1,12 @@
-const city = document.querySelector('.weather tbody td:first-child')
-const weather = document.querySelector('.weather tbody td:nth-child(2)')
-const temp = document.querySelector('.weather tbody td:nth-child(3)')
-const wind = document.querySelector('.weather tbody td:nth-child(4)')
+const city = document.querySelector('#city');
+const weather = document.querySelector('#weather');
+const temp = document.querySelector('#temp');
+const wind = document.querySelector('#wind');
 const weatherIconImg = document.querySelector('.weatherIcon');
-
+const feelLikeElem = document.querySelector('#feelLike');
+const minTempElem = document.querySelector('#minTemp');
+const maxTempElem = document.querySelector('#maxTemp');
+const humidityElem = document.querySelector('#humidity');
 
 const degToCompass = (num) => {
     const val = Math.floor((num / 22.5) + 0.5);
@@ -12,42 +15,46 @@ const degToCompass = (num) => {
 }
 
 const callbackOk= (position) =>{
-    const lat = position.coords.latitude //위도
-    const lon = position.coords.longitude //경도
-    const lang = 'kr' //언어
-    const units = 'metric' //섭씨
-    console.log(`현재 위도 및 경도 : $${lat}, ${lon} `)
-    const url =  `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=${lang}&units=${units}&appid=10f3e82c6d9ff43e765c8586c5a68d90`
+    const lat = position.coords.latitude; //위도
+    const lon = position.coords.longitude; //경도
+    const lang = 'kr'; //언어
+    const units = 'metric'; //섭씨
+    console.log(`현재 위도 및 경도 : $${lat}, ${lon} `);
+    const url =  `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=${lang}&units=${units}&appid=10f3e82c6d9ff43e765c8586c5a68d90`;
     // console.log(url)
     fetch(url)
         .then(response => response.json())
         .then(data=>{
-            const temperature = Math.round(data.main.temp)
-            const windDirection = degToCompass(data.wind.deg)
-            const feelLike = data.main.feels_like
-            const minTemp = data.main.temp_min
-            const maxTemp = data.main.temp_max
-            const humidity = data.main.humidity
-            const mWeather = data.weather[0].main
+            const temperature = Math.round(data.main.temp);
+            const windDirection = degToCompass(data.wind.deg);
+            const feelLike = Math.round(data.main.feels_like);
+            const minTemp = Math.round(data.main.temp_min);
+            const maxTemp = Math.round(data.main.temp_max);
+            const humidity = data.main.humidity;
+            const mWeather = data.weather[0].main;
             const weatherIconAdrs = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-            console.log(feelLike)
-            console.log(minTemp)
-            console.log(maxTemp)
-            console.log(humidity)
-            console.log(mWeather)
+            console.log(feelLike);
+            console.log(minTemp);
+            console.log(maxTemp);
+            console.log(humidity);
+            console.log(mWeather);
 
-            city.innerText = data.name
-            weather.innerText = data.weather[0].description
-            temp.innerText = `${temperature}도`
-            wind.innerText = `${windDirection} ${data.wind.speed}m/s`
+            city.innerText = data.name;
+            weather.innerText = data.weather[0].description;
+            temp.innerText = `${temperature}도`;
+            wind.innerText = `${windDirection} ${data.wind.speed}m/s`;
             weatherIconImg.setAttribute('src', weatherIconAdrs);
+            feelLikeElem.innerText = `${feelLike}도`;
+            minTempElem.innerText = `${minTemp}도`;
+            maxTempElem.innerText = `${maxTemp}도`;
+            humidityElem.innerText = `${humidity}%`;
         })
 }
 
 const callbackError= () =>{
-    alert("위치정보를 찾을 수 없습니다.")
+    alert("위치정보를 찾을 수 없습니다.");
 }
 
 // 사용자의 현재 위치정보를 가져옴
-navigator.geolocation.getCurrentPosition(callbackOk, callbackError) //getCurrentPosition(successCallback, errorCallback, options)
+navigator.geolocation.getCurrentPosition(callbackOk, callbackError); //getCurrentPosition(successCallback, errorCallback, options)

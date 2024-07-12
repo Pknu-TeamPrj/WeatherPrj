@@ -10,29 +10,36 @@
     <form action="/join" method="post">
         <table>
             <tr>
-                <td><h2>회원가입</h2></td>
+                <h2>추가 정보입력</h2>
             </tr>
-            <tr><td>아이디</td></tr>
-            <tr><td><input type="text" class="text" name="userId"></td></tr>
-            <tr><td>비밀번호</td></tr>
-            <tr><td><input type="password" class="text" name="userPassword"></td></tr>
-            <tr><td>비밀번호 확인</td></tr>
-            <tr><td><input type="password" class="text"></td></tr>
-            <tr><td>이름</td></tr>
-            <tr><td><input type="text" class="text" name="userName"></td></tr>
-            <tr><td>생년월일</td></tr>
-            <tr><td><input type="date" class="text" name="userBirth"></td></tr>
-            <tr><td>이메일</td></tr>
+            <tr><td>별명</td></tr>
+            <tr><td><input type="text" class="text nickName"></td></tr>
+            <tr><td>연령</td></tr>
             <tr>
-                <td><input type="text" class="email" name="userEmail"> @
-                <select>
-                    <option>naver.com</option>
-                    <option>gmail.com</option>
-                    <option>daum.net</option>
-                </select>
+                <td>
+                    <select class="age">
+                        <option>10대</option>
+                        <option>20대</option>
+                        <option>30대</option>
+                        <option>40대</option>
+                        <option>50대</option>
+                        <option>60대</option>
+                        <option>70대</option>
+                        <option>80대</option>
+                        <option>90대</option>
+                    </select>
                 </td>
             </tr>
-            <tr><td><input type="submit" value="가입하기" class="btn" onclick="alert('가입 성공')"></td></tr>
+            <tr><td>성별</td></tr>
+            <tr>
+                <td>
+                    <select class="gender">
+                        <option>남성</option>
+                        <option>여성</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="입력완료" class="btn" onclick="alert('입력완료')"></td></tr>
         </table>
     </form>
 </body>
