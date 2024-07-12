@@ -1,8 +1,10 @@
 package com.teamprj.weatherprj.controller;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import java.util.Arrays;
+
 import io.github.flashvayne.chatgpt.dto.chat.MultiChatMessage;
 import io.github.flashvayne.chatgpt.service.ChatgptService;
 import lombok.RequiredArgsConstructor;
