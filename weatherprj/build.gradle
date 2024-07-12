@@ -32,15 +32,23 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	//OAuth2 관련 디펜던시
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
 	// DB를 위한 디펜던시 추가(H2, Oracle, JPA)
 	runtimeOnly 'com.h2database:h2'
 	// 오픈 API
 	implementation 'io.github.flashvayne:chatgpt-spring-boot-starter:1.0.4'
 	// 스프링 시큐리티 디펜던시
+
 	implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
 
-	implementation 'org.json:json:20240303'
+	
+
+	
+
 }
 
 tasks.named('test') {

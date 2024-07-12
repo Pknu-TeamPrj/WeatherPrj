@@ -6,7 +6,7 @@ window.onload = () =>{
             //경도
             const longitude = position.coords.longitude;
             let mapDiv = document.getElementById('map');
-            naverMap(35.3272,129.2821);
+            naverMap(latitude,longitude);
 
 
             
