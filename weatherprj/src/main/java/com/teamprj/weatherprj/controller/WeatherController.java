@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 public class WeatherController {
     @GetMapping("/weather")
     public String getMethodName() {
-        return "weather";
+        return "index";
     }
     
     @GetMapping("/map")
