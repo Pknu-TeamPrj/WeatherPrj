@@ -4,6 +4,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.teamprj.weatherprj.dto.UserDto;
 // import com.teamprj.weatherprj.entity.Member;
@@ -11,8 +12,6 @@ import com.teamprj.weatherprj.dto.UserDto;
 import com.teamprj.weatherprj.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.web.bind.annotation.PostMapping;
 
 @RequiredArgsConstructor    // 생성자 방식으로 의존성 주입
 @Controller

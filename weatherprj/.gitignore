@@ -35,3 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# OAuth2 로그인 관련 정보들 숨기기
+**/application-login.properties
