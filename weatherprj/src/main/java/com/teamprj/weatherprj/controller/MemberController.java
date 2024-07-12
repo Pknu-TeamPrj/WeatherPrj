@@ -1,5 +1,7 @@
 package com.teamprj.weatherprj.controller;
 
+import java.security.Principal;
+
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,7 @@ import com.teamprj.weatherprj.dto.UserDto;
 import com.teamprj.weatherprj.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
+
 
 @RequiredArgsConstructor    // 생성자 방식으로 의존성 주입
 @Controller
@@ -29,6 +32,14 @@ public class MemberController {
     public String join() {
         return "member/join";
     }
+
+    @GetMapping("/memberReg")
+    public String getMethodName(Principal principal) {
+        String longinedUser = principal.getName();
+        
+        return new String();
+    }
+    
 
     @PostMapping("/join")
     public String join(UserDto userDto, BindingResult bindingResult) {

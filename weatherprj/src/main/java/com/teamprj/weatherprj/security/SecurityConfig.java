@@ -59,12 +59,10 @@ public class SecurityConfig {
                                     .oauth2Login((auth) -> auth
                                         .loginPage("/")
                                         .userInfoEndpoint(userInfo -> userInfo.userService(customOatuh2UserService))
-                                        .defaultSuccessUrl("/map")
+                                        .defaultSuccessUrl("/memberReg")
                                         .failureUrl("/")
-                                        
                                         .permitAll())
                                         .csrf(crsf -> crsf.disable())
-                                        
                                         .headers((headers) ->
                                         headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)));
 
