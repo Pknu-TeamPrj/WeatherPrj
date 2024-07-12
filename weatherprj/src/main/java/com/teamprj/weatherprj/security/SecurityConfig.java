@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -52,13 +53,15 @@ public class SecurityConfig {
                 //         .invalidateHttpSession(true));
         
         // 인덱스 파일에만 접근할 수 있으며 나머지 모든 것은 접근할 수 없습니다.
-        http.authorizeHttpRequests((auth) -> auth.anyRequest().authenticated()
+        http.authorizeHttpRequests((auth) -> auth.requestMatchers(new AntPathRequestMatcher("/js/**"), new AntPathRequestMatcher("/css/**"),new AntPathRequestMatcher("/images/**")).permitAll()
+                                    .anyRequest().authenticated()
                                     )
                                     .oauth2Login((auth) -> auth
                                         .loginPage("/")
                                         .userInfoEndpoint(userInfo -> userInfo.userService(customOatuh2UserService))
                                         .defaultSuccessUrl("/map")
                                         .failureUrl("/")
+                                        
                                         .permitAll())
                                         .csrf(crsf -> crsf.disable())
                                         
