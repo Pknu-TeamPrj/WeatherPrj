@@ -12,7 +12,7 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import com.teamprj.weatherprj.service.CustomOatuh2UserService;
+import com.teamprj.weatherprj.service.CustomOauth2UserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final CustomOatuh2UserService customOatuh2UserService;
+    private final CustomOauth2UserService customOatuh2UserService;
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
