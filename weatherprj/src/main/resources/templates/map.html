@@ -20,6 +20,14 @@
             <div class="row d-flex justify-content-center">
                 <div id="message" class="text-info text-center"></div>
             </div>
+            <div class="row d-flex justify-content-center mt-3">
+                    <button id="yes" class="btn btn-warning mb-3">예</button>
+                    <button id="no" class="btn btn-secondary" onclick="showContent()">아니요</button>
+                </div> 
+            <div class="row d-flex justify-content-center mt-3" id="location-input-group" style="display: none;">
+                <input type="text" id="location-input" placeholder="동(읍) 입력" style="display: none;">
+                <button id="search" class="btn btn-primary mt-1" style="display: none;">검색</button>
+            </div>
         </div>
     </div>
 
