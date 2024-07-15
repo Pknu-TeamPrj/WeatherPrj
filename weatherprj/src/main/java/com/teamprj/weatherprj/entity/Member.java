@@ -26,14 +26,11 @@ public class Member {
     @Column (unique = true)
     private String userId;
 
-    private String userPassword;
+    private String userAge;
 
-    private String userName;
+    private String userSex;
 
-    private String userBirth;
-
-    @Column (unique = true)
-    private String userEmail;
+    private String userNickname;
 
     private String provider;
 }

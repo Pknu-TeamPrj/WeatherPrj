@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,14 @@
     <title>날씨옷장</title>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xq8rlky11y"></script>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xq8rlky11y&submodules=geocoder"></script>
+    
 </head>
 <body>
     <div class="vh-100 d-flex align-items-center justify-content-center">
         <div class="container">
             <div class="d-flex row justify-content-center">
                 <div id="map" style="width: 400px; height: 400px;"></div>
+                <div th:text="${loginedMember.userNickname}"></div>
             </div>
             <div class="row d-flex justify-content-center">
                 <div id="message" class="text-info text-center"></div>

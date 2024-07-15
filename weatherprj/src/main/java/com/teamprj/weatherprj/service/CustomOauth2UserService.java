@@ -36,12 +36,10 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService{
         if(provider.equals("naver")){
             log.info("네이버 로그인");
             oAuth2UserInfo = new NaverUserDetails(oAuth2User.getAttributes());
-            log.info("뭐가 나올까={}",oAuth2UserInfo);
         }
         if(provider.equals("kakao")){
             log.info("카카오 로그인");
             oAuth2UserInfo = new KakaoUserDetails(oAuth2User.getAttributes());
-            log.info("~~~~={},",oAuth2UserInfo);
         }
 
         String providerId = oAuth2UserInfo.getProviderId();
