@@ -17,7 +17,6 @@ public class WeatherController {
     
     @GetMapping("/map")
     public String map(Principal principal) {
-        log.info("유저의 이름 : {}", principal.getName());
         return "map";
     }
     
