@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="/css/join.css">
 </head>
 <body>
-    <form action="/join" method="post">
+    <form action="/memberReg" method="post">
         <table>
             <tr>
                 <h2>추가 정보입력</h2>
             </tr>
             <tr><td>별명</td></tr>
-            <tr><td><input type="text" class="text" name="nickName" required></td></tr>
+            <tr><td><input type="text" class="text" name="userNickname" required></td></tr>
             <tr><td>연령</td></tr>
             <tr>
                 <td>
-                    <select class="age" name="age">
+                    <select class="age" name="userAge">
                         <option>10대</option>
                         <option>20대</option>
                         <option>30대</option>
@@ -33,7 +33,7 @@
             <tr><td>성별</td></tr>
             <tr>
                 <td>
-                    <select class="gender" name="gender">
+                    <select class="userSex" name="userSex">
                         <option>남성</option>
                         <option>여성</option>
                     </select>
