@@ -65,6 +65,12 @@ public class SecurityConfig {
                                         .csrf(crsf -> crsf.disable())
                                         .headers((headers) ->
                                         headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)));
+                                // 로그아웃
+                                //      .logout((logout) -> logout     //로그아웃 설정 시작 부분
+                                //        .logoutRequestMatcher(new AntPathRequestMatcher("/"))     //로그아웃 처리할 url 패턴 지정
+                                //        .logoutSuccessUrl("/")       //로그아웃 성공적으로 된후 다른 페이지로 보낼 url
+                                //        .invalidateHttpSession(true)    //로그아웃 시 사용자의 세션을 무효화 할지 여부 지정
+                                //        .deleteCookies("JSESSIONID")     //로그아웃시 삭제할 쿠키 지정 ("JSESSIONID" 쿠키를 삭제하여 세션과 관련된 모든 정보 삭제)
 
         return http.build();
     }
