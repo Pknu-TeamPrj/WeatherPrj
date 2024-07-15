@@ -15,7 +15,16 @@
         <div class="container">
             <div class="d-flex row justify-content-center">
                 <div id="map" style="width: 400px; height: 400px;"></div>
-                <div th:text="${loginedMember.userNickname}"></div>
+                <div th:text="|${loginedMember.userNickname}님 안녕하세요.|"></div>
+
+
+                <div class="d-flex row justify-content-center mt-3">
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="btn btn-danger">로그아웃</button>
+                    </form>
+                </div>
+           
+           
             </div>
             <div class="row d-flex justify-content-center">
                 <div id="message" class="text-info text-center"></div>
