@@ -17,7 +17,19 @@ window.onload = () =>{
             const location = document.getElementById('location-input').value;
             searchLocation(location);
             });
-};
+
+    // 2024.07.16
+    // 엔터키 이벤트 추가
+    document.getElementById("location-input").addEventListener('keypress', (event) => {
+        if (event.key ==='Enter') {
+            event.preventDefault();// 기본 엔터 동작방지
+            const location = document.getElementById('location-input').value;
+            searchLocation(location);
+        }
+    })
+
+    };
+
 
 //네이버 API를 통한 지도 출력
 function naverMap(latitude,longitude){
