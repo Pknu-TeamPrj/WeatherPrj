@@ -19,10 +19,5 @@ public class WeatherController {
     public String map(Principal principal) {
         return "map";
     }
-
-    // @GetMapping("/openWeather")
-    // public String openWeather() {
-    //     return "openWeather";
-    // }
     
 }
