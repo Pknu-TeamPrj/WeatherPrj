@@ -15,7 +15,6 @@ import com.teamprj.weatherprj.repository.MemberRepository;
 import com.teamprj.weatherprj.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 
@@ -70,15 +69,7 @@ public class MemberController {
         return "map";
     }
 
-    // 2024-07-16 박창현 추가
-    @GetMapping("/openWeather")
-    public String openWeather(Principal principal, Model model) {
-        String loginedMember = principal.getName();
-        Member member = memberService.findbyUserId(loginedMember);
 
-        model.addAttribute("loginedMember", member);
-        return "openWeather";
-    }
     
     
 }

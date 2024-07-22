@@ -1,10 +1,14 @@
+let map;
+
 window.onload = () =>{
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition((position) =>{
             //위도
             const latitude = position.coords.latitude;
+            nowLat = position.coords.latitude;
             //경도
             const longitude = position.coords.longitude;
+            nowLng = position.coords.longitude;
             let mapDiv = document.getElementById('map');
             naverMap(latitude,longitude);
    
@@ -34,7 +38,7 @@ window.onload = () =>{
 //네이버 API를 통한 지도 출력
 function naverMap(latitude,longitude){
     let infowindow = new naver.maps.InfoWindow();
-    let map = new naver.maps.Map('map',{
+    map = new naver.maps.Map('map',{
         center : new naver.maps.LatLng(latitude, longitude),
         zoom:16,
         mapTypeId : naver.maps.MapTypeId.NORMAL
@@ -72,7 +76,7 @@ function message(location){
 // 사용자의 위치를 찾지 못 했을 때 나올 지도
 function notFoundGeoLocation() {
     let infowindow = new naver.maps.InfoWindow();
-    let map = new naver.maps.Map('map',{
+    map = new naver.maps.Map('map',{
         center:new naver.maps.LatLng(37.5666805, 126.9784147),
         zoom:10,
         mapTypeId:naver.maps.MapTypeId.NORMAL
@@ -100,7 +104,8 @@ function searchLocation(locationName) {
         let item = response.v2.addresses[0];
         let latitude = item.y;
         let longitude = item.x;
-
+        nowLat = item.y;
+        nowLng = item.x;
         naverMap(latitude, longitude);
     });
 }
@@ -113,4 +118,26 @@ function showContent() {
         content.style.display = "block"; // 내용 보이기
         content1.style.display = "block";
     }
+}
+
+function moveToOpenWeather() {
+    const location = map.getCenter();
+    let region;
+    naver.maps.Service.reverseGeocode({
+        coords : location,
+        order : naver.maps.Service.OrderType.ROAD_ADDR
+    },function(status,response){
+        if(status == naver.maps.Service.Status.Error){
+            return alert('오류가 발생했습니다. 관리자에게 문의해주세요!');
+        }
+        let items = response.v2.results;
+        region = items[0].region;
+        console.log(region.area3);
+        console.log(region);
+        console.log(region.area3.coords.center.y);
+        console.log(region.area3.coords.center.x);
+        console.log(region.area3.name);
+        window.location.href = `/openWeather?lat=${region.area3.coords.center.y}&lng=${region.area3.coords.center.x}&location=${region.area3.name}`;
+    }
+    )
 }
