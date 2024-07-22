@@ -14,7 +14,7 @@ table {
     height: 30%;
     margin-top: 5%;
 }
-.gender, .text, .age {
+.userSex, .text, .userAge {
     width: 250px;
     height: 32px;
     font-size: 15px;
