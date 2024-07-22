@@ -83,3 +83,22 @@ body {
 .next-button:hover {
     background-color: #0687d1;
 }
+
+.weather-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.weather, .outfit-suggestion {
+    flex: 1;
+    margin: 10px;
+}
+
+.weather {
+    flex: 1;
+    margin: 10px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
