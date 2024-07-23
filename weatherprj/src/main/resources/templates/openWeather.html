@@ -49,6 +49,14 @@
         </div>
         <!-- 옷 추천 끝 -->
     </div>
+    <div class="container mt-5" id="commentForm">
+        
+        <form class="d-flex justify-content-center" action="/comment" method="post">
+            <input class="input-group-text col-10" name="content"></input>
+            <button type="submit" class="btn btn-secondary col-1">작성</button>
+        </form>
+
+    </div>
     <script>
         var locationName = "[[${locationName}]]";
         var latitude = "[[${lat}]]";
