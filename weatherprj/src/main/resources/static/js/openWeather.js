@@ -60,7 +60,7 @@ const getOutfitRecommendation = async (temperature, weatherDescription) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Authorization': 'Bearer key값입력' 
+                // 'Authorization': 'Bearer key값입력'
             },
             body: JSON.stringify({
                 model: "gpt-3.5-turbo", // 모델 이름을 지정합니다.
