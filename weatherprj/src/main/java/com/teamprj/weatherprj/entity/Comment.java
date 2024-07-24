@@ -1,15 +1,15 @@
 package com.teamprj.weatherprj.entity;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,29 +17,33 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Reply {
+@NoArgsConstructor
+@Builder
+public class Comment {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long rno;
+    private Long cno;
 
-    @Column(name = "content" , length = 1000)
+    @ManyToOne
+    @JoinColumn(name = "uno")
+    private Member member;
+
+    @Column(nullable = false,length = 400)
     private String content;
 
+    @Column(nullable = false,updatable = false)
     @CreatedDate
-    @Column(name = "createDate" , updatable = false)
-    private LocalDateTime createDate;
+    private LocalDate createDate;
 
-    @LastModifiedDate
-    @Column(name = "modifyDate")
-    private LocalDateTime modifyDate; // 24.06.24 수정일 추가
-    
-    // 사용자가 여러개의 게시글을 작성할 수 있다. 다대일 설정
-    @ManyToOne
-    private Member writer;
+    @Column
+    @CreatedDate
+    private LocalDate modifyDate;
+
+    @Column(nullable = false)
+    private String area3;
 }
