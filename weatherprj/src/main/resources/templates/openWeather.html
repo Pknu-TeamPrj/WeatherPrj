@@ -65,6 +65,11 @@
                     </div>
                     [[${#temporals.format(comment.modifyDate,"yyyy-MM-dd")}]]
                 </div>
+                <div class="badge text-bg-secondary p-2" th:if="${comment.modifyDate == null}">
+                    <div>
+                        [[${#temporals.format(comment.createDate,"yyyy-MM-dd")}]]
+                    </div>
+                </div>
             </div>
 
             <div style="justify-content: flex-end;"

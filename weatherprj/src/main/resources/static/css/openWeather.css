@@ -92,3 +92,8 @@ header {
     font-size: 15px;
     margin-left: 5px;
 } */
+#outfitSuggestion {
+    padding: 3%;
+    font-size: 18px;
+    font-style: italic;
+}
