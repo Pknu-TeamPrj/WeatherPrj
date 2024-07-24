@@ -122,3 +122,5 @@ const callbackError = () => {
 
 // // 사용자의 현재 위치정보를 가져옴
 // navigator.geolocation.getCurrentPosition(callbackOk, callbackError);
+
+

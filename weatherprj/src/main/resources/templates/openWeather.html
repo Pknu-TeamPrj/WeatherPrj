@@ -50,17 +50,71 @@
         <!-- 옷 추천 끝 -->
     </div>
     <div class="container mt-5" id="commentForm">
+        <div class="d-flex justify-content-center">
+            <input class="input-group-text col-10" name="content" id="content"></input>
+            <button onclick="commentReg()" class="btn btn-secondary col-1">작성</button>
+        </div>
+    <div class="my-3 container overflow-auto" style="height: 37vh;">
+    <div th:each="comment : ${commentList}" class="card border-secondary col-7 my-3 text-nowrap mx-auto">
+        <div class="card-body">
+            <div th:text="${comment.content}" class="card-text align-items-center"></div>
+            <div class="d-flex justify-content-end">
+                <div class="badge text-bg-primary p-2" th:if="${comment.modifyDate != null}">
+                    <div class="mb-2">
+                        <span>최종 수정일</span>
+                    </div>
+                    [[${#temporals.format(comment.modifyDate,"yyyy-MM-dd")}]]
+                </div>
+            </div>
+
+            <div style="justify-content: flex-end;"
+            th:if="${comment.member.userId == #authentication.getPrincipal().getUsername()}"
+            class="my-3 d-flex justify-content-content-end"
+            >
+            <a href="#" class="btn btn-sm btn-outline-success me-1">수정</a>
+            <a  href="#" class="delete btn btn-sm btn-outline-danger">삭제</a>
+        </div>
+
+
+        </div>
         
-        <form class="d-flex justify-content-center" action="/comment" method="post">
-            <input class="input-group-text col-10" name="content"></input>
-            <button type="submit" class="btn btn-secondary col-1">작성</button>
-        </form>
+        </div>
+
+
+    </div>
 
     </div>
     <script>
         var locationName = "[[${locationName}]]";
         var latitude = "[[${lat}]]";
         var longitude = "[[${lng}]]";
+
+        //코멘트 작성 메서드
+        async function commentReg() {
+            if(document.getElementById('content').value === ""){
+                alert("값을 입력해주세요.");
+                return
+            }
+            const data = {
+                content : document.getElementById('content').value,
+                area3 : locationName
+            };
+
+            const response = await fetch("/comment",{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify(data)
+            }
+            );
+
+            if(response.ok){
+                window.location.reload();
+            }else{
+                alert("서버 내부에서 오류가 발생했습니다. 관리자에게 문의하세요.");
+            }
+        }
     </script>
     <script src="/js/openWeather.js" type="module"></script>
 </body>
