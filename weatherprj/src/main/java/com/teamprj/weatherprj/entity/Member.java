@@ -26,13 +26,13 @@ public class Member {
     @Column (unique = true)
     private String userId;
 
-    @Column(nullable = false)
+
     private String userAge;
 
-    @Column(nullable = false)
+
     private String userSex;
 
-    @Column(nullable = false)
+
     private String userNickname;
 
     @Column(nullable = false)

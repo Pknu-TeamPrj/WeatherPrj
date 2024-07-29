@@ -43,6 +43,9 @@ window.onload = () => {
             outfitSuggestionElem.innerText = outfitSuggestion;
         });
 }
+
+
+
 const degToCompass = (num) => {
     const val = Math.floor((num / 22.5) + 0.5);
     const arr = ['북', '북북동', '동북동', '동동북', '동', '동동남', '남동', '남남동', '남', '남남서', '서남서', '서서남', '서', '서북서', '북서', '북북서'];
@@ -122,5 +125,6 @@ const callbackError = () => {
 
 // // 사용자의 현재 위치정보를 가져옴
 // navigator.geolocation.getCurrentPosition(callbackOk, callbackError);
+
 
 
