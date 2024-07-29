@@ -26,6 +26,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -33,7 +36,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class CommentController {
     
     private final CommentService commentService;
-
     private final MemberService memberService;
 
     private final CommentRepository commentRepository;
@@ -48,9 +50,18 @@ public class CommentController {
         Member member = memberService.findbyUserId(principalName);
 
         System.out.println(commentDto.getContent());
-        commentService.saveComment(commentDto.getContent(),commentDto.getArea3(),
-                                    member);
+        commentService.saveComment(commentDto.getContent(),commentDto.getArea3(),member,commentDto.getCno());
+    
         return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/comment/{cno}")
+    public ResponseEntity<String> delete(@PathVariable("cno") Long cno) {
+        Comment comment = this.commentRepository.findById(cno).get();
+        
+        this.commentService.deleteComment(comment);
+        return new ResponseEntity<>(HttpStatus.OK);
+
     }
     
     @PutMapping("comment/{cno}")

@@ -46,4 +46,5 @@ public class Comment {
 
     @Column(nullable = false)
     private String area3;
+
 }
