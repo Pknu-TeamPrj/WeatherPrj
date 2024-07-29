@@ -77,17 +77,10 @@
             class="my-3 d-flex justify-content-content-end"
             >
             <a href="#" class="btn btn-sm btn-outline-success me-1">수정</a>
-            <a  href="#" class="delete btn btn-sm btn-outline-danger">삭제</a>
+            <button type="button" th:onclick="|deleteComment(${comment.cno})|" class="btn btn-danger btn-sm">삭제</button>
+            </div>
+            
         </div>
-
-
-        </div>
-        
-        </div>
-
-
-    </div>
-
     </div>
     <script>
         var locationName = "[[${locationName}]]";
@@ -118,6 +111,22 @@
                 window.location.reload();
             }else{
                 alert("서버 내부에서 오류가 발생했습니다. 관리자에게 문의하세요.");
+            }
+        }
+        // 댓글삭제 메서드
+        async function deleteComment(cno){ 
+            if(!confirm("삭제?")){
+                return
+            }
+            const response = await fetch(`/comment/${cno}`,{
+                method:"DELETE",
+                headers:{
+                    "Content-Type":"text/plain"
+                },
+                body:cno
+            });
+            if(response.ok){
+                window.location.reload();
             }
         }
     </script>

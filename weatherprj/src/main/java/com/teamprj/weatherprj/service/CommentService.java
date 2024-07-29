@@ -17,12 +17,16 @@ public class CommentService {
     
     private final CommentRepository commentRepository;
 
-    public Comment saveComment(String content, String area3, Member member){
-        Comment comment = Comment.builder().content(content).area3(area3).createDate(LocalDate.now()).member(member).build();
+    public Comment saveComment(String content, String area3, Member member, Long cno){
+        Comment comment = Comment.builder().content(content).area3(area3).createDate(LocalDate.now()).member(member).cno(cno).build();
         return commentRepository.save(comment);
     }
 
     public List<Comment> findByArea3(String area3){
         return commentRepository.findByArea3(area3);
+    }
+    // 댓글 삭제
+    public void deleteComment(Comment comment){
+        this.commentRepository.delete(comment);
     }
 }
