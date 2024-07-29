@@ -60,10 +60,9 @@
             <div th:text="${comment.content}" class="card-text align-items-center"></div>
             <div class="d-flex justify-content-end">
                 <div class="badge text-bg-primary p-2" th:if="${comment.modifyDate != null}">
-                    <div class="mb-2">
-                        <span>최종 수정일</span>
+                    <div>
+                        [[${#temporals.format(comment.modifyDate,"yyyy-MM-dd")}]]
                     </div>
-                    [[${#temporals.format(comment.modifyDate,"yyyy-MM-dd")}]]
                 </div>
                 <div class="badge text-bg-secondary p-2" th:if="${comment.modifyDate == null}">
                     <div>
@@ -76,15 +75,33 @@
             th:if="${comment.member.userId == #authentication.getPrincipal().getUsername()}"
             class="my-3 d-flex justify-content-content-end"
             >
-            <a href="#" class="btn btn-sm btn-outline-success me-1">수정</a>
-            <a  href="#" class="delete btn btn-sm btn-outline-danger">삭제</a>
+            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" th:data-bs-target="|#commentModify${comment.cno}|">
+                수정
+              </button>
+                      <!-- 모달 영역 -->
+                      <div class="modal fade" th:id="|commentModify${comment.cno}|" tabindex="-1" aria-labelledby="commentModifyLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="commentModifyLabel">댓글 수정</h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <textarea th:id="|textArea${comment.cno}|" name="modifyText" class="form-control" rows="6" style="resize: none;" maxlength="50"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" th:onclick="|commentModify(document.querySelector('#textArea${comment.cno}').value , ${comment.cno})|">수정</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            <a href="#" class="delete btn btn-sm btn-outline-danger">삭제</a>
         </div>
 
 
         </div>
         
         </div>
-
 
     </div>
 
@@ -120,7 +137,32 @@
                 alert("서버 내부에서 오류가 발생했습니다. 관리자에게 문의하세요.");
             }
         }
+        // 코멘트 수정 메서드
+        async function commentModify(modifyText,cno){
+            if(modifyText === ''){
+                alert("값을 입력해주세요.");
+                reutrn 
+            }
+            const data = {
+                modifyText : modifyText
+            };
+            const reponse = await fetch(`/comment/${cno}`,{
+                method:"PUT",
+                headers:{
+                    "Content-Type":"text/plain"
+                },
+                body: modifyText
+            }
+            );
+            if(reponse.ok){
+                window.location.reload();
+            }else{
+                alert(`${reponse.status} \n 서버 내부에서 문제가 발생했습니다. 관리자에게 문의해주세요.`);
+            }
+        }
+
     </script>
     <script src="/js/openWeather.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

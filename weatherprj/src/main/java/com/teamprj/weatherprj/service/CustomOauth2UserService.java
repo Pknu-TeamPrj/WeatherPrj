@@ -48,6 +48,7 @@ public class CustomOauth2UserService extends DefaultOAuth2UserService{
         Member member;
         if(findMember.isPresent()){
             member = findMember.get();
+            
         }else{
             member = Member.builder()
                     .userId(providerId)

@@ -15,12 +15,14 @@ import com.teamprj.weatherprj.repository.MemberRepository;
 import com.teamprj.weatherprj.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 
 
 
 @RequiredArgsConstructor    // 생성자 방식으로 의존성 주입
 @Controller
+@Slf4j
 public class MemberController {
 
     private final MemberRepository memberRepository;
@@ -44,7 +46,7 @@ public class MemberController {
         String loginedMember = principal.getName();
         //찾아온 member ID로 데이터베이스에 접근 후 그 값이 존재한다면 member 객체를 반환합니다.
         Member member = memberService.findbyUserId(loginedMember);
-
+        log.info("로그인한 멤버 = ", member);
         // 찾아온 member의 필드 중 age, nickname, sex 하나라도 null이라면 memberReg.html로 이동합니다.
         if(member.getUserAge() == null || member.getUserNickname() == null || member.getUserSex() == null){
             return "member/memberReg";
